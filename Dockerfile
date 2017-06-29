@@ -14,4 +14,4 @@ RUN apt-get update && apt-get upgrade -y \
 	&& apt-get remove -y software-properties-common git build-essential cmake make \
 	&& rm -rf /var/lib/apt/lists/*
 
-CMD ["indiserver", "indi_asi_ccd"]
+CMD ["indiserver", "indi_asi_ccd", "indi_ardust4"]
