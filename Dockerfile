@@ -18,4 +18,4 @@ COPY ./indi_ardust4.xml /usr/share/indi/indi_ardust4.xml
 
 VOLUME ["indisrv_conf:/root/.indi"]
 
-CMD ["indiserver", "indi_asi_ccd", "indi_ardust4", "indi_simulator_telescope", "indi_simulator_ccd"]
+CMD ["indiserver", "indi_asi_ccd", "indi_ardust4", "indi_simulator_telescope", "indi_gphoto_ccd"]
