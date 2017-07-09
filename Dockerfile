@@ -1,6 +1,6 @@
 FROM ubuntu:16.10
 
-RUN apt-get update && apt-get upgrade -y \
+RUN apt-get update \
 	&& apt-get install -y --no-install-recommends software-properties-common git build-essential cmake make \
 	&& add-apt-repository -y ppa:mutlaqja/ppa \
 	&& apt-get update && apt-get install -y indi-full \
@@ -14,4 +14,8 @@ RUN apt-get update && apt-get upgrade -y \
 	&& apt-get remove -y software-properties-common git build-essential cmake make \
 	&& rm -rf /var/lib/apt/lists/*
 
-CMD ["indiserver", "indi_asi_ccd", "indi_ardust4"]
+COPY ./indi_ardust4.xml /usr/share/indi/indi_ardust4.xml
+
+VOLUME ["indisrv_conf:/root/.indi"]
+
+CMD ["indiserver", "indi_asi_ccd", "indi_ardust4", "indi_simulator_telescope", "indi_simulator_ccd"]
