@@ -1,5 +1,5 @@
 #!/bin/bash
-docker run -d -p 7624:7624 \
+docker run --rm -d -p 7624:7624 \
   --name indisrv \
   --device /dev/bus/usb \
   --device /dev/ttyS0 \
