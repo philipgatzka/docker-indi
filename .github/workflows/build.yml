@@ -1,0 +1,26 @@
+name: Build Image
+on: [release]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Build image
+      uses: actions/docker/cli@master
+      with:
+        args: build -t ${{ github.repository }}/server .
+    - name: Tag image
+      uses: actions/docker/cli@master
+      with:
+        args: tag ${{ github.repository }}/server docker.pkg.github.com/${{ github.repository }}/server:latest
+    - name: Login to Github's container registry
+      uses: actions/docker/login@master
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_REGISTRY_URL: docker.pkg.github.com
+    - name: Push image to Github's container registry
+      uses: actions/docker/cli@master
+      with:
+        args: push docker.pkg.github.com/${{ github.repository }}/server:latest

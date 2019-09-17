@@ -1,0 +1,6 @@
+{
+    "name": "Build Docker image",
+    "description": "Builds the Docker image.",
+    "iconName": "docker",
+    "categories": ["Dockerfile"]
+}
