@@ -6,4 +6,4 @@ docker run -d -p 7624:7624 -p 9000:9000 \
   --device /dev/ttyS0 \
   --device /dev/ttyUSB0 \
   --restart="unless-stopped" \
-  indisrv indi_asi_ccd indi_arduinost4 indi_simulator_telescope indi_nikon_ccd
+  indisrv indi_asi_ccd indi_nikon_ccd indi_lx200_OnStep
