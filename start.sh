@@ -4,6 +4,6 @@ docker run -d -p 7624:7624 -p 9000:9000 \
   --name indisrv \
   --device /dev/bus/usb \
   --device /dev/ttyS0 \
-  --device /dev/ttyUSB0 \
+  --device /dev/ttyACM0 \
   --restart="unless-stopped" \
   indisrv indi_asi_ccd indi_nikon_ccd indi_lx200_OnStep
